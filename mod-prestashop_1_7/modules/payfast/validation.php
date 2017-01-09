@@ -17,7 +17,7 @@
  * License for more details.
  * 
  * @author     Jonathan Page
- * @version    1.0.0
+ * @version    1.0.1
  *
  * @author     Ron Darby <ron.darby@payfast.co.za>
  * @version    2.1.0

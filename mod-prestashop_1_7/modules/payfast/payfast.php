@@ -17,7 +17,7 @@
  * License for more details.
  * 
  * @author     Ron Darby<ron.darby@payfast.co.za>
- * @version    2.1.0
+ * @version    1.0.1
  * @date       12/12/2013
  * 
  * @copyright  2013 PayFast (Pty) Ltd
@@ -43,7 +43,7 @@ class PayFast extends PaymentModule
     {
         $this->name = 'payfast';
         $this->tab = 'payments_gateways';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);  
         $this->currencies = true;
         $this->currencies_mode = 'radio';
