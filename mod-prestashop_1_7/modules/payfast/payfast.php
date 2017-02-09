@@ -17,7 +17,7 @@
  * License for more details.
  * 
  * @author     Ron Darby<ron.darby@payfast.co.za>
- * @version    1.0.1
+ * @version    1.0.2
  * @date       12/12/2013
  * 
  * @copyright  2013 PayFast (Pty) Ltd
@@ -43,7 +43,7 @@ class PayFast extends PaymentModule
     {
         $this->name = 'payfast';
         $this->tab = 'payments_gateways';
-        $this->version = '1.0.1';
+        $this->version = '1.0.2';
         $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);  
         $this->currencies = true;
         $this->currencies_mode = 'radio';
@@ -61,7 +61,6 @@ class PayFast extends PaymentModule
 
     public function install()
     {
-        unlink(dirname(__FILE__).'/../../cache/class_index.php');
         if( !parent::install()
             OR !$this->registerHook('paymentOptions') 
             OR !$this->registerHook('paymentReturn') 
@@ -83,7 +82,6 @@ class PayFast extends PaymentModule
 
     public function uninstall()
     {
-        unlink(dirname(__FILE__).'/../../cache/class_index.php');
         return ( parent::uninstall() 
             AND Configuration::deleteByName('PAYFAST_MERCHANT_ID') 
             AND Configuration::deleteByName('PAYFAST_MERCHANT_KEY') 

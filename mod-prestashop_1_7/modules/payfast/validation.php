@@ -17,10 +17,10 @@
  * License for more details.
  * 
  * @author     Jonathan Page
- * @version    1.0.1
+ * @version    1.0.2
  *
  * @author     Ron Darby <ron.darby@payfast.co.za>
- * @version    2.1.0
+ * @version    1.0.2
  * @date       12/12/2013
  * 
  * @copyright  2013 PayFast (Pty) Ltd
