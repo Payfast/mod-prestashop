@@ -308,7 +308,7 @@ class PayFast extends PaymentModule
     public function hookDisplayFooter( $params )
     {
         $html = '<section id="payfast_footer_link" class="footer-block col-xs-12 col-sm-2">        
-        <div style="text-align:center;"><a href="https://www.payfast.co.za" target="_blank" title="Secure Payments With PayFast"><img src="'.__PS_BASE_URI__.'modules/payfast/secure_logo.png"  /></a></div>  
+        <div style="text-align:center;"><a href="https://www.payfast.co.za" rel="nofollow" title="Secure Payments With PayFast"><img src="'.__PS_BASE_URI__.'modules/payfast/secure_logo.png"  /></a></div>  
         </section>';
         return $html;
     }    
