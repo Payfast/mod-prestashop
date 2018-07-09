@@ -7,13 +7,15 @@
  * Except as expressly indicated in this licence, you may not use, copy, modify or distribute this plugin / code or part thereof in any way.
  * 
  * @author     Ron Darby<ron.darby@payfast.co.za>
- * @version    1.0.2
+ * @version    1.0.5
  * @date       12/12/2013
  *
  * @link       http://www.payfast.co.za/help/prestashop
  */
 
 use PrestaShop\PrestaShop\Core\Payment\PaymentOption;
+
+include 'payfast_common.inc.php';
 
 if( !defined( '_PS_VERSION_' ) )
     exit;
@@ -31,7 +33,7 @@ class PayFast extends PaymentModule
     {
         $this->name = 'payfast';
         $this->tab = 'payments_gateways';
-        $this->version = '1.0.2';
+        $this->version = constant('PF_MODULE_VER');
         $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);  
         $this->currencies = true;
         $this->currencies_mode = 'radio';
@@ -40,8 +42,7 @@ class PayFast extends PaymentModule
        
         $this->author  = 'PayFast';
         $this->page = basename(__FILE__, '.php');
-
-        $this->displayName = $this->l('PayFast');
+        
         $this->description = $this->l('Accept payments by credit card, EFT and cash from both local and international buyers, quickly and securely with PayFast.');
         $this->confirmUninstall = $this->l('Are you sure you want to delete your details ?');
 
@@ -427,8 +428,9 @@ class PayFast extends PaymentModule
         $data['info']['amount'] = number_format( sprintf( "%01.2f", $pfAmount ), 2, '.', '' );
         $data['info']['item_name'] = Configuration::get('PS_SHOP_NAME') .' purchase, Cart Item ID #'. $cart->id; 
         $data['info']['custom_int1'] = $cart->id;       
-        $data['info']['custom_str1'] = $cart->secure_key;           
-            
+        $data['info']['custom_str1'] = 'PF_PRESTASHOP_'.constant('PF_MODULE_VER');         
+        $data['info']['custom_str2'] = $cart->secure_key;   
+
         $pfOutput = '';
         // Create output string
         foreach( ($data['info']) as $key => $val )
@@ -515,6 +517,11 @@ class PayFast extends PaymentModule
                                 'name' =>'custom_str1',
                                 'type' =>'hidden',
                                 'value' =>$data['info']['custom_str1'],
+                            ],
+                            'custom_str2' => [
+                                'name' =>'custom_str2',
+                                'type' =>'hidden',
+                                'value' =>$data['info']['custom_str2'],
                             ],
                             'signature' => [
                                 'name' =>'signature',
