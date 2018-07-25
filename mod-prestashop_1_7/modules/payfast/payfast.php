@@ -93,19 +93,24 @@ class PayFast extends PaymentModule
             #content{                    
                 padding-top: 10px; 
                 width:550px;  
-            }                   
+            }             
+            @media only screen and ( min-width: 550px ) {
+              #box {
+                  width: 110px;
+              }                   
+            }
             @media only screen and ( max-width: 550px ) {
                 #content {
                     width:300px;
                 }
-                #box{
-                    width: 100px;
-                }  
                 .nobootstrap .margin-form {
                     padding-left: 180px;
                 }   
                 .nobootstrap label {
                     width: 170px;
+                }
+                #box {
+                    width: 91px;
                 }
                 body.mobile #content.bootstrap {
                     padding-left: 0px;                        
@@ -251,20 +256,20 @@ class PayFast extends PaymentModule
               '.$this->l('Merchant ID').'
             </label>
             <div class="margin-form">
-            <input id="box" type="text" name="payfast_merchant_id" value="'.Tools::getValue('payfast_merchant_id', Configuration::get('PAYFAST_MERCHANT_ID')).'" />
+            <input type="text" name="payfast_merchant_id" value="'.Tools::getValue('payfast_merchant_id', Configuration::get('PAYFAST_MERCHANT_ID')).'" />
             </div>
             <label>
               '.$this->l('Merchant Key').'
             </label>
             <div class="margin-form">
-            <input id="box" type="text" name="payfast_merchant_key" value="'.trim(Tools::getValue('payfast_merchant_key', Configuration::get('PAYFAST_MERCHANT_KEY'))).'" />
+            <input type="text" name="payfast_merchant_key" value="'.trim(Tools::getValue('payfast_merchant_key', Configuration::get('PAYFAST_MERCHANT_KEY'))).'" />
             </div> 
             <p>'.$this->l('ONLY INSERT A VALUE INTO THE SECURE PASSPHRASE IF YOU HAVE SET THIS ON THE INTEGRATION PAGE OF THE LOGGED IN AREA OF THE PAYFAST WEBSITE!!!!!').'</p>'.
             '<label>
               '.$this->l('Secure Passphrase').'
             </label>
             <div class="margin-form">
-            <input id="box" type="text" name="payfast_passphrase" value="'.trim(Tools::getValue('payfast_passphrase', Configuration::get('PAYFAST_PASSPHRASE'))).'" />
+            <input type="text" name="payfast_passphrase" value="'.trim(Tools::getValue('payfast_passphrase', Configuration::get('PAYFAST_PASSPHRASE'))).'" />
             </div>
             <p>'.$this->l('You can log the server-to-server communication. The log file for debugging can be found at ').' '.__PS_BASE_URI__.'modules/payfast/payfast.log. '.$this->l('If activated, be sure to protect it by putting a .htaccess file in the same directory. If not, the file will be readable by everyone.').'</p>       
             <label>
@@ -280,7 +285,7 @@ class PayFast extends PaymentModule
                     '.$this->l('PayNow Text').'
                   </label>
                   <div class="margin-form" style="margin-top:5px">
-                  <input id="box" type="text" name="payfast_paynow_text" value="'. Configuration::get('PAYFAST_PAYNOW_TEXT').'">
+                  <input type="text" name="payfast_paynow_text" value="'. Configuration::get('PAYFAST_PAYNOW_TEXT').'">
                   </div>';
 
         //Pay Now text preview.
@@ -296,7 +301,7 @@ class PayFast extends PaymentModule
             '.$this->l('Select the image position').'
             </label>
             <div class="margin-form" style="margin-bottom:18px;width:110px;">
-                <select name="logo_position" style="width:110px;">';
+            <select id="box" name="logo_position" >';
         foreach($blockPositionList as $position => $translation)
         {
             $selected = ($currentLogoBlockPosition == $position) ? 'selected="selected"' : '';
@@ -428,7 +433,7 @@ class PayFast extends PaymentModule
         $data['info']['amount'] = number_format( sprintf( "%01.2f", $pfAmount ), 2, '.', '' );
         $data['info']['item_name'] = Configuration::get('PS_SHOP_NAME') .' purchase, Cart Item ID #'. $cart->id; 
         $data['info']['custom_int1'] = $cart->id;       
-        $data['info']['custom_str1'] = 'PF_PRESTASHOP_'.constant('PF_MODULE_VER');         
+        $data['info']['custom_str1'] = 'PF_PRESTASHOP_1.7_'.constant('PF_MODULE_VER');           
         $data['info']['custom_str2'] = $cart->secure_key;   
 
         $pfOutput = '';
