@@ -3,5 +3,5 @@ You (being anyone who is not PayFast (Pty) Ltd) may download and use this plugin
 Except as expressly indicated in this licence, you may not use, copy, modify or distribute this plugin / code or part thereof in any way.*}
 <section>
   <p>{l s='Secure payment gateway for credit cards and other payment methods.' mod='payfast'}</p>
-  <p>{l s='You will be directed to PayFast&#39;s secure payment page.' mod='payfast'}</p>
+  <p>{l s='You will be directed to PayFast\'s secure payment page.' mod='payfast'}</p>
 </section>
