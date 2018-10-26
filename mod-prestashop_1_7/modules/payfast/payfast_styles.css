@@ -1,0 +1,269 @@
+
+
+.pf__logo{
+    height: 60px;
+    margin-left: 20px;
+}
+.pf__header{
+    height: 75px;
+    width: 100%;
+    background-color: #F3F3F3;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.pf__header span{
+    color: #041b2b;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    top: 65%;
+    left: 30px;
+}
+.pf__main--section{
+    width: 92%;
+    background-color: #ffffff;
+    margin-right: 20px;
+    padding: 20px;
+    font-size: 13px;
+    color: #000000;
+    font-family: "Open Sans";
+    padding-left: 40px;
+
+}
+.divider{
+    display: block;
+    width: 90%;
+    height: 1px;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.main__section--header{
+    font-size: 18px;
+    font-weight: 600;
+}
+.merchant__config{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.pf__selector input[type='radio'] {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    outline: none;
+    border: 2px solid gray;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+.pf__selector input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 66%;
+    height: 66%;
+    margin: 2px;
+    border-radius: 50%;
+}
+
+.pf__selector input[type="radio"]:checked:before {
+    background: #c30017;
+
+}
+
+.pf__selector input[type="radio"]:checked {
+    border-color:grey;
+}
+
+.payfast__mode{
+    display: flex;
+    flex-direction: column;
+
+}
+.additional__info{
+    width: 35%;
+    margin-top: 32px !important;
+}
+
+.pf__subheading{
+    font-size: 14px;
+    color: #0b0b0b;
+    margin-bottom: 24px;
+
+}
+
+.account__details{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.additional__info--smaller{
+    margin-top: 20px !important;
+}
+
+.merchant__headers{
+    margin-bottom: 2px;
+}
+
+.merchant__input{
+    height: 28px;
+    margin-bottom: 8px !important;
+
+}
+#merchant__input--details{
+    padding-left: 10px;
+}
+
+.additional__info--taller{
+    margin-top: 0 !important;
+}
+
+.debug__selector{
+    margin-top: 20px;
+}
+
+.preview__section{
+    flex-direction: row-reverse;
+}
+
+.preview__header{
+    margin-top: 32px;
+    font-size: 16px;
+}
+
+.pf__dropdown{
+    height: 28px;
+    background-color: #ffffff;
+}
+
+#pf__button{
+    width: 230px;
+    height: 38px;
+    border-radius: 5px;
+    background: #3da134;
+    color: #ffffff;
+    font-weight: normal;
+    margin-top: 30px;
+}
+
+.pf__form--footer{
+    width: 100%;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+}
+
+.config__pf{
+    width: 100%;
+    -moz-box-shadow:    0px 0px 5px 3px #ccc;
+    -webkit-box-shadow: 0px 0px 5px 3px #ccc;
+    box-shadow:         0px 0px 5px 3px #ccc;
+}
+
+#pf__content{
+    max-width: 750px;
+    min-width: 500px !important;
+ }
+.footer__header{
+    width: 204px;
+    height: 24px;
+    color: #000000;
+    font-family: "Open Sans Semi Bold";
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+.pf__form--footer span{
+    font-size: 15px;
+}
+
+.divider__longer{
+    width: 100%;
+}
+
+.footer__info{
+    display: flex;
+    flex-direction: inherit;
+    width: 70%;
+}
+
+.footer__info--para{
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@media screen and (max-width: 1023px) {
+
+    .config__pf{
+        max-width: 95%;
+    }
+    .merchant__config {
+        flex-direction: column;
+    }
+    .additional__info{
+        width: 100%;
+    }
+    .payfast__mode{
+        max-width: 100%;
+    }
+    .account__details{
+        width: 50%;
+    }
+    .debug__selector{
+        margin-bottom: 10px;
+    }
+    .pf__main--section{
+        width: 91%;
+    }
+}
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+    border: 1px solid #ccc;
+    width: 94%;
+    padding-left: 10px;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#pf__link{
+    color: #c30017;
+}
+
+.split__selector{
+    margin-top: 15px;
+}
+
+.split__info{
+    margin-top: 20px;
+}
+
+.page-sidebar-closed:not(.mobile) #content{
+    padding-left: 0;
+    margin-left: 40px;
+}
+
+#content input[type='text'] {
+    padding-left: 10px;
+}

@@ -30,7 +30,7 @@ In order to make the module “LIVE”, follow the instructions below:
 
 1. Login to the PrestaShop Back Office
 2. Using the top navigation bar, navigate to Modules
-3. Click on Payments & Gateways to expand the options
+3. Click on Modules & Services
 4. Under PayFast, click on the “Configure” link
 5. In the PayFast Settings block, use the following settings:
 6. Mode = “Live”

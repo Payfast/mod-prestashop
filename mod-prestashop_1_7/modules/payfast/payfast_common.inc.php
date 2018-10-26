@@ -13,9 +13,8 @@
 define( 'PF_SOFTWARE_NAME', 'PrestaShop' );
 define( 'PF_SOFTWARE_VER', Configuration::get('PS_INSTALL_VERSION') );
 define( 'PF_MODULE_NAME', 'PayFast-Prestashop' );
-define( 'PF_MODULE_VER', '1.0.5' );
+define( 'PF_MODULE_VER', '1.1.0' );
 define( 'PF_DEBUG', ( Configuration::get('PAYFAST_LOGS')  ? true : false ) );
-
 // Features
 // - PHP
 $pfFeatures = 'PHP '. phpversion() .';';
@@ -149,7 +148,10 @@ function pfValidSignature( $pfData = null, &$pfParamString = null, $pfPassphrase
 
     $pfParamString = substr( $pfParamString, 0, -1 );
 
-    if( is_null( $pfPassphrase ) ||  Configuration::get('PAYFAST_MODE') != 'live' )
+    $pf_merchant_id = Configuration::get('PAYFAST_MERCHANT_ID');
+    $pf_merchant_key = Configuration::get('PAYFAST_MERCHANT_KEY');
+
+    if( is_null( $pfPassphrase ) ||  empty($pf_merchant_id) || empty($pf_merchant_key) )
     {
         $tempParamString = $pfParamString;
     }

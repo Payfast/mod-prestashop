@@ -20,7 +20,7 @@
 
 include( dirname(__FILE__).'/../../config/config.inc.php' );
 include( dirname(__FILE__).'/payfast.php' );
-include( dirname(__FILE__).'/payfast_common.inc.php' );
+//include( dirname(__FILE__).'/payfast_common.inc.php' );
 
 // Check if this is an ITN request
 // Has to be done like this (as opposed to "exit" as processing needs
@@ -98,7 +98,7 @@ if( ( $_GET['itn_request'] == 'true' ) )
         // Get order data
         $cart = new Cart((int) $pfData['m_payment_id']);
 
-        pflog( "Purchase:\n". print_r( $cart, true )  );
+        //pflog( "Purchase:\n". print_r( $cart, true )  );
     }
 
     //// Verify data received
@@ -125,7 +125,7 @@ if( ( $_GET['itn_request'] == 'true' ) )
         $total = Tools::convertPriceFull( $pfData['amount_gross'], $fromCurrency, $toCurrency );
      
         // Check order amount
-        if( strcasecmp( $pfData['custom_str1'], $cart->secure_key ) != 0 )
+        if( strcasecmp( $pfData['custom_str2'], $cart->secure_key ) != 0 )
         {
             $pfError = true;
             $pfErrMsg = PF_ERR_SESSIONID_MISMATCH;
@@ -140,7 +140,7 @@ if( ( $_GET['itn_request'] == 'true' ) )
     {
         pflog( 'Check status and update order' );
 
-        $sessionid = $pfData['custom_str1'];
+        $sessionid = $pfData['custom_str2'];
         $transaction_id = $pfData['pf_payment_id'];
         
         if (empty(Context::getContext()->link))
@@ -153,7 +153,7 @@ if( ( $_GET['itn_request'] == 'true' ) )
 
                 // Update the purchase status
                 $payfast->validateOrder((int)$pfData['custom_int1'], _PS_OS_PAYMENT_, (float)$total , 
-                    $payfast->displayName, NULL, array('transaction_id'=>$transaction_id), NULL, false, $pfData['custom_str1']);
+                    $payfast->displayName, NULL, array('transaction_id'=>$transaction_id), NULL, false, $pfData['custom_str2']);
                 
                 break;
 
@@ -162,7 +162,7 @@ if( ( $_GET['itn_request'] == 'true' ) )
 
                 // If payment fails, delete the purchase log
                 $payfast->validateOrder((int)$pfData['custom_int1'], _PS_OS_ERROR_, (float)$total , 
-                    $payfast->displayName, NULL,array('transaction_id'=>$transaction_id), NULL, false, $pfData['custom_str1']);
+                    $payfast->displayName, NULL,array('transaction_id'=>$transaction_id), NULL, false, $pfData['custom_str2']);
 
                 break;
 
