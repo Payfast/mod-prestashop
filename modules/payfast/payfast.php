@@ -34,7 +34,10 @@ class PayFast extends PaymentModule
         $this->name = 'payfast';
         $this->tab = 'payments_gateways';
         $this->version = constant('PF_MODULE_VER');
-        $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);  
+        $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);
+        $this->author = 'PayFast';
+        $this->controllers = array('validation');
+
         $this->currencies = true;
         $this->currencies_mode = 'radio';
         
@@ -527,7 +530,7 @@ class PayFast extends PaymentModule
         // Create URLs
         $data['info']['return_url'] = $this->context->link->getPageLink( 'order-confirmation', null, null, 'key='.$cart->secure_key.'&id_cart='.(int)($cart->id).'&id_module='.(int)($this->id));
         $data['info']['cancel_url'] = Tools::getHttpHost( true ).__PS_BASE_URI__;
-        $data['info']['notify_url'] = Tools::getHttpHost( true ).__PS_BASE_URI__.'modules/payfast/validation.php?itn_request=true';
+        $data['info']['notify_url'] = $this->context->link->getModuleLink($this->name, 'validation', array(), true);
     
         $data['info']['name_first'] = $customer->firstname;
         $data['info']['name_last'] = $customer->lastname;
