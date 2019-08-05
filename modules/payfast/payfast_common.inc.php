@@ -263,7 +263,6 @@ function pfValidData( $pfHost = 'www.payfast.co.za', $pfParamString = '', $pfPro
          return( true );
      else
          return( false );
-    return true;
 }
 // }}}
 // {{{ pfValidIP
