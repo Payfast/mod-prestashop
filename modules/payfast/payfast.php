@@ -105,7 +105,7 @@ class PayFast extends PaymentModule
         <div id="content" class="config__pf">  
         <div class="pf__header">
             <p>
-                <a href="https://www.payfast.pf.rhein" target="_blank">
+                <a href="https://www.payfast.co.za" target="_blank">
                     <img class="pf__logo" src="'.__PS_BASE_URI__.'modules/payfast/payFast-logo-2-colour.svg" alt="PayFast" boreder="0" />
                 </a>
             </p>
