@@ -41,9 +41,7 @@ class PayFast extends PaymentModule
         $this->currencies = true;
         $this->currencies_mode = 'radio';
         
-        parent::__construct();
-       
-        $this->author  = 'PayFast';
+        parent::__construct();       
         $this->page = basename(__FILE__, '.php');
         
         $this->displayName = $this->l('PayFast');
@@ -108,8 +106,8 @@ class PayFast extends PaymentModule
         <div id="content" class="config__pf">  
         <div class="pf__header">
             <p>
-                <a href="https://www.payfast.co.za" target="_blank">
-                    <img class="pf__logo" src="'.__PS_BASE_URI__.'modules/payfast/payFast-logo-2-colour.svg" alt="PayFast" boreder="0" />
+                <a href="https://www.payfast.co.za" target="_blank" rel="nofollow">
+                    <img class="pf__logo" src="'.__PS_BASE_URI__.'modules/payfast/payFast-logo-2-colour.svg" alt="PayFast" border="0" />
                 </a>
             </p>
         </div>
@@ -426,7 +424,7 @@ class PayFast extends PaymentModule
     {    
         $html = '
             <div style="text-align:center;">
-                <a href="https://www.payfast.co.za" target="_blank" title="Secure Payments With PayFast">
+                <a href="https://www.payfast.co.za" target="_blank" rel="nofollow" title="Secure Payments With PayFast">
                     <img src="'.__PS_BASE_URI__.'modules/payfast/secure_logo.png" width="150" />
                 </a>
             </div>';
@@ -449,7 +447,7 @@ class PayFast extends PaymentModule
         $html = '
         <section id="payfast_footer_link" class="footer-block col-xs-12 col-sm-2">        
             <div style="text-align:center;">
-                <a href="https://www.payfast.co.za" rel="nofollow" title="Secure Payments With PayFast">
+                <a href="https://www.payfast.co.za" target="_blank rel="nofollow" title="Secure Payments With PayFast">
                     <img src="'.__PS_BASE_URI__.'modules/payfast/secure_logo.png"  />
                 </a>
             </div>  
@@ -553,7 +551,7 @@ class PayFast extends PaymentModule
         }
         else
         {
-            $pfOutput = $pfOutput."passphrase=".urlencode( $passPhrase );
+            $pfOutput = $pfOutput."passphrase=".urlencode( trim( $passPhrase ) );
         }
 
         $data['info']['signature'] = md5( $pfOutput );
