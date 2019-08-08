@@ -13,7 +13,7 @@
 define( 'PF_SOFTWARE_NAME', 'PrestaShop' );
 define( 'PF_SOFTWARE_VER', Configuration::get('PS_INSTALL_VERSION') );
 define( 'PF_MODULE_NAME', 'PayFast-Prestashop' );
-define( 'PF_MODULE_VER', '1.1.0' );
+define( 'PF_MODULE_VER', '1.2.0' );
 define( 'PF_DEBUG', ( Configuration::get('PAYFAST_LOGS')  ? true : false ) );
 // Features
 // - PHP
